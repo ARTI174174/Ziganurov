@@ -1056,24 +1056,73 @@
      2. ПКМ на превью → "Копировать адрес изображения"
      3. Вставь сюда в поле thumb
   ═══════════════════════════════════════════════════════ */
-  const VK_SRC  = 'https://vkvideo.ru/video_ext.php?oid=-9009998&id=456239032&hash=5aa06debdb694156';
-  const VK_THUMB = '1.jpg'; // ← сюда вставь ссылку на превью (пока пусто — будет градиент)
-
+  /* ═══════════════════════════════════════════════════════════════
+     ПОРТФОЛИО — меняй vk и thumb для каждой карточки отдельно
+     
+     vk    → src из iframe ВКонтакте (кнопка "Поделиться" → "Код")
+     thumb → имя файла превью, загруженного на GitHub (рядом с index.html)
+             например: 'wed1.jpg'  или  'img/wed1.jpg' если в папке img
+  ═══════════════════════════════════════════════════════════════ */
   const portfolioData = {
     wedding: [
-      { label: 'Свадьба в Чейнске',  cls: 'thumb-wedding', vk: VK_SRC, thumb: VK_THUMB },
-      { label: 'Венчание в соборе',  cls: 'thumb-wedding', vk: VK_SRC, thumb: VK_THUMB },
-      { label: 'Выездная церемония', cls: 'thumb-wedding', vk: VK_SRC, thumb: VK_THUMB },
+      {
+        label: 'Анатолий и Диана',
+        cls:   'thumb-wedding',
+        vk:    'https://vkvideo.ru/video_ext.php?oid=-9009998&id=456239032&hash=5aa06debdb694156', // ← видео 1
+        thumb: '1.jpg',  // ← превью 1
+      },
+      {
+        label: 'Вадим и Екатерина',
+        cls:   'thumb-wedding',
+        vk:    'https://vk.com/video_ext.php?oid=19744362&id=456239820&hash=e70bb75d6f34235b', // ← видео 2
+        thumb: '2.jpg',  // ← превью 2
+      },
+      {
+        label: 'Выездная церемония',
+        cls:   'thumb-wedding',
+        vk:    'https://vkvideo.ru/video_ext.php?oid=-9009998&id=456239032&hash=5aa06debdb694156', // ← видео 3
+        thumb: '1.jpg',  // ← превью 3
+      },
     ],
     event: [
-      { label: 'IT-форум 2025',          cls: 'thumb-event', vk: VK_SRC, thumb: VK_THUMB },
-      { label: 'Корпоратив банка',       cls: 'thumb-event', vk: VK_SRC, thumb: VK_THUMB },
-      { label: 'Музыкальный фестиваль',  cls: 'thumb-event', vk: VK_SRC, thumb: VK_THUMB },
+      {
+        label: 'IT-форум 2025',
+        cls:   'thumb-event',
+        vk:    'https://vkvideo.ru/video_ext.php?oid=-9009998&id=456239032&hash=5aa06debdb694156', // ← видео 4
+        thumb: '1.jpg',  // ← превью 4
+      },
+      {
+        label: 'Корпоратив банка',
+        cls:   'thumb-event',
+        vk:    'https://vkvideo.ru/video_ext.php?oid=-9009998&id=456239032&hash=5aa06debdb694156', // ← видео 5
+        thumb: '1.jpg',  // ← превью 5
+      },
+      {
+        label: 'Музыкальный фестиваль',
+        cls:   'thumb-event',
+        vk:    'https://vkvideo.ru/video_ext.php?oid=-9009998&id=456239032&hash=5aa06debdb694156', // ← видео 6
+        thumb: '1.jpg',  // ← превью 6
+      },
     ],
     biz: [
-      { label: 'Ролик для ресторана',  cls: 'thumb-biz', vk: VK_SRC, thumb: VK_THUMB },
-      { label: 'Презентация стартапа', cls: 'thumb-biz', vk: VK_SRC, thumb: VK_THUMB },
-      { label: 'Имиджевый ролик',      cls: 'thumb-biz', vk: VK_SRC, thumb: VK_THUMB },
+      {
+        label: 'Ролик для ресторана',
+        cls:   'thumb-biz',
+        vk:    'https://vkvideo.ru/video_ext.php?oid=-9009998&id=456239032&hash=5aa06debdb694156', // ← видео 7
+        thumb: '1.jpg',  // ← превью 7
+      },
+      {
+        label: 'Презентация стартапа',
+        cls:   'thumb-biz',
+        vk:    'https://vkvideo.ru/video_ext.php?oid=-9009998&id=456239032&hash=5aa06debdb694156', // ← видео 8
+        thumb: '1.jpg',  // ← превью 8
+      },
+      {
+        label: 'Имиджевый ролик',
+        cls:   'thumb-biz',
+        vk:    'https://vkvideo.ru/video_ext.php?oid=-9009998&id=456239032&hash=5aa06debdb694156', // ← видео 9
+        thumb: '1.jpg',  // ← превью 9
+      },
     ],
   };
 
