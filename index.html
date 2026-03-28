@@ -987,7 +987,7 @@
             <div class="icon">
               <svg width="18" height="18" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             </div>
-            video@alexmorozov.ru
+            <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="46302f22232906272a233e2b2934293c2930683433">[email&#160;protected]</a>
           </div>
           <div class="contact-row">
             <div class="icon">
@@ -1032,23 +1032,23 @@
   <div class="footer-copy">© 2026 · Видеограф · Челябинск</div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   /* ── Portfolio data ── */
   const portfolioData = {
     wedding: [
-      { label: 'Свадьба в Чеинске', cls: 'thumb-wedding' },
-      { label: 'Венчание в соборе',     cls: 'thumb-wedding' },
-      { label: 'Выездная церемония',    cls: 'thumb-wedding' },
+      { label: 'Свадьба в Чеинске', cls: 'thumb-wedding', vk: 'https://vkvideo.ru/video_ext.php?oid=-9009998&id=456239032&hash=5aa06debdb694156' },
+      { label: 'Венчание в соборе',     cls: 'thumb-wedding', vk: '' },
+      { label: 'Выездная церемония',    cls: 'thumb-wedding', vk: '' },
     ],
     event: [
-      { label: 'IT-форум 2025',         cls: 'thumb-event' },
-      { label: 'Корпоратив банка',      cls: 'thumb-event' },
-      { label: 'Музыкальный фестиваль', cls: 'thumb-event' },
+      { label: 'IT-форум 2025',         cls: 'thumb-event', vk: '' },
+      { label: 'Корпоратив банка',      cls: 'thumb-event', vk: '' },
+      { label: 'Музыкальный фестиваль', cls: 'thumb-event', vk: '' },
     ],
     biz: [
-      { label: 'Ролик для ресторана',   cls: 'thumb-biz' },
-      { label: 'Презентация стартапа',  cls: 'thumb-biz' },
-      { label: 'Имиджевый ролик',       cls: 'thumb-biz' },
+      { label: 'Ролик для ресторана',   cls: 'thumb-biz', vk: '' },
+      { label: 'Презентация стартапа',  cls: 'thumb-biz', vk: '' },
+      { label: 'Имиджевый ролик',       cls: 'thumb-biz', vk: '' },
     ],
   };
 
@@ -1057,7 +1057,7 @@
     grid.innerHTML = '';
     portfolioData[cat].forEach(item => {
       grid.innerHTML += `
-        <div class="portfolio-item ${item.cls}" data-label="${item.label}">
+        <div class="portfolio-item ${item.cls}" data-label="${item.label}" onclick="${item.vk ? `openVideo('${item.vk}')` : ''}">
           <div class="play-icon">
             <svg width="16" height="18" viewBox="0 0 16 18"><path d="M2 1l13 8L2 17V1z"/></svg>
           </div>
@@ -1071,6 +1071,19 @@
     btn.classList.add('active');
     renderPortfolio(cat);
   }
+
+  /* ── Видео-модалка ── */
+  function openVideo(src) {
+    document.getElementById('videoModal').style.display = 'flex';
+    document.getElementById('videoFrame').src = src;
+    document.body.style.overflow = 'hidden';
+  }
+  function closeVideo() {
+    document.getElementById('videoModal').style.display = 'none';
+    document.getElementById('videoFrame').src = '';
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeVideo(); });
 
   renderPortfolio('wedding');
 
@@ -1120,5 +1133,28 @@
     observer.observe(el);
   });
 </script>
+
+<!-- ── ВИДЕО МОДАЛКА ── -->
+<div id="videoModal" style="
+  display:none; position:fixed; inset:0; z-index:9999;
+  background:rgba(0,0,0,0.92); align-items:center; justify-content:center;
+" onclick="if(event.target===this)closeVideo()">
+  <div style="position:relative; width:90%; max-width:900px;">
+    <button onclick="closeVideo()" style="
+      position:absolute; top:-44px; right:0;
+      background:none; border:none; color:#c8a96e;
+      font-family:'Montserrat',sans-serif; font-size:12px;
+      letter-spacing:3px; text-transform:uppercase;
+      cursor:pointer; display:flex; align-items:center; gap:8px;
+    ">✕ &nbsp;Закрыть</button>
+    <div style="position:relative; padding-bottom:56.25%; height:0;">
+      <iframe id="videoFrame" src="" frameborder="0"
+        allowfullscreen allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+        style="position:absolute; inset:0; width:100%; height:100%; background:#000;">
+      </iframe>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
